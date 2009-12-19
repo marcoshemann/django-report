@@ -7,21 +7,18 @@ from reports.views import *
 from django.views.generic.date_based import archive_year
 from django.contrib.admin.models import LogEntry
 
-#REPORT_CONF = {
-#    'base_title':           u'Report: ',
-#    'toolbar_back_txt':     u'&laquo; Retour',
-#    'toolbar_download_txt': u'Télécharger PDF',
-#    'report_title':         u"Untitled report",
-#}
+queryset    = LogEntry.objects.all()
+report_conf = settings.REPORT_CONF
+report_conf['title'] = 'Admin action log (%d total)' % len(queryset)
 
 urlpatterns = patterns('',
     url(r'^actions/$', archive_year, {
-        'year': datetime.datetime.now().year,
-        'date_field': 'action_time',
+        'year':             datetime.datetime.now().year,
+        'date_field':       'action_time',
         'make_object_list': True,
-        'queryset': LogEntry.objects.all(),
-        'template_name': 'report/actions.html',
-        'extra_context': settings.REPORT_CONF,
+        'queryset':         queryset,
+        'template_name':    'report/actions.html',
+        'extra_context':    settings.REPORT_CONF,
     },name='reports-actions'),
 ) 
 
