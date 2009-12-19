@@ -22,9 +22,8 @@
                 {% endblock %}
             </div>
             <div id="body">
-                {% barcode "1234567891011","center" %}
                 {% block report.body %}
-                <h1 id="title">{{ title }}</h1>
+                <h1 id="title">{{ title|safe }}</h1>
                 <div id="content">
                     {% block report.content %}{% endblock %}
                 </div>
