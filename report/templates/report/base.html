@@ -5,9 +5,21 @@
         <title>{{ base_title }} {{ title }}</title>
         <meta name="robots" content="NONE,NOARCHIVE" />
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reports-base.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('<div class="page-break">Page break</div>').insertBefore('pdf\\:nextpage');
+                $('#head-static').clone().css('margin-left', 0).insertAfter('.page-break');
+                $('pdf\\:pagenumber').each(function(i, node){
+                    $(node).replaceWith('<span>'+ (i + 1) +'</span>');
+                });
+              
+              })
+        </script>
+
     </head>
     <body class="report">
-        <div id="report-toolbar">
+        <div id="report-toolbar" class="no-print">
             {% block report.toolbar %}
             {{ base_title }} {{ title }} 
             <a href="?pdf">{{ toolbar_download_txt|safe }}</a>
@@ -16,7 +28,7 @@
         </div>
         <div id="page">
             {% block report.page %}
-            <div id="head">
+            <div id="{% block report.head.id %}head{% endblock %}">
                 {% block report.head %}
                 <img src="{{ MEDIA_URL }}img/django-report-logo.png" alt="Django Report" border="0">
                 {% endblock %}
@@ -31,7 +43,7 @@
             </div>
             <div id="foot">
             {% block report.foot %}
-                {{ base_title }} {{ title }} &ndash; Page: {% pagenumber %}
+                {{ base_title }} {{ title }} &ndash; Page: 
             {% endblock %}
             </div>
             {% endblock %}
