@@ -52,9 +52,15 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     padding:2px 4px 1px 2px;
     text-align:center;
 }
+.report-list tbody th {
+    border:1px solid #ddd;
+    padding:2px 6px 1px 6px;
+    text-align:right;
+    width:130px;
+}
 .report-list tbody td {
     border:1px solid #ddd;
-    padding:2px 4px 1px 2px;
+    padding:2px 6px 1px 6px;
 }
 
 .price {
@@ -65,15 +71,21 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
 @media print {
     @page {
         @frame {
-            margin:1cm;
+            margin:1.5cm 1cm;
         }
+        @frame header {
+            -pdf-frame-content: head-static;
+            margin:1.5cm 1cm;
+            height: 1cm;
+            -pdf-outline: false;
+        }
+        /*
         @frame footer {
             -pdf-frame-content: foot;
-            bottom: 0;
-            margin-left:1cm;
-            margin-right:1cm;
+            margin:1.5cm 1cm;
             height: 1cm;
         }
+        */
     }
     
     address,blockquote,body,center,dl,dir,div,fieldset,
@@ -81,26 +93,38 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     ol,p,pre,table,th,tr,td,ul,li,dd,dt,pdftoc { display: block; }
     noscript { display: none; }
     h1,h2,h3,h4,h5,h6 { -pdf-outline: true; -pdf-outline-open: false; margin:0; }
-    h1 { -pdf-outline-level: 0; }
-    h2 { -pdf-outline-level: 1; }
-    h3 { -pdf-outline-level: 2; margin-top:15px; }
-    h4 { -pdf-outline-level: 3; }
-    h5 { -pdf-outline-level: 4; }
-    h6 { -pdf-outline-level: 5; }
-    #report-toolbar { display:none; }
-    #head {
-        margin:0 0 10px 0;
+    h1 { -pdf-outline: false; }
+    h2 { -pdf-outline-level: 0; }
+    h3 { -pdf-outline-level: 1; margin-top:15px; }
+    h4 { -pdf-outline-level: 2; }
+    h5 { -pdf-outline-level: 3; }
+    h6 { -pdf-outline-level: 4; }
+    #head, #head-static {
     }
+    #body {
+        padding-top:60px;
+    }
+    .no-print { display:none; }
     .report-list {
         width:100%;
     }
+    .report-list thead th {
+        height:14px;
+        vertical-align:middle;
+        line-height:-5px;
+    }
     .report-list tbody th {
+        height:14px;
+        vertical-align:middle;
+        line-height:-5px;
         padding:4px 4px 0 4px;
     }
     .report-list tbody td {
         border:1px solid #eee;
-        padding:4px 4px 0 2px;
+        height:14px;
         vertical-align:middle;
+        line-height:-5px;
+        padding:4px 4px 0 4px;
     }
     #foot {
         display:block;
@@ -128,13 +152,23 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         background:#eee;
         margin:0;
     }
+    .page-break {
+        background:#eee;
+        width:8.5in;
+        margin:0.5in 0 0.5in -48px;
+        padding:0.2in 0 0.2in 0;
+        border:1px dashed #ccc;
+        border-width:1px 0;
+        text-align:center;
+        color:#666;
+    }
     #page {
         background:#fff;
         border:1px solid #333;
         margin:10px auto;
         width:8.5in;
     }
-    #head {
+    #head, #head-static {
         margin:0.5in 0.5in 0 0.5in;
     }
     #body { 
@@ -142,6 +176,9 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     }
     #foot {
         display:none;
+    }
+    #content {
+        min-height:8in;
     }
     #report-toolbar {
         background:#333;
@@ -161,6 +198,10 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         color:#309BBF;
         text-decoration:none;
         float:right;
-        margin-left:10px;
+        padding:0 12px;
+        border-right:1px solid #666;
+    }
+    #report-toolbar a:first-child {
+        border:0;
     }
 }
