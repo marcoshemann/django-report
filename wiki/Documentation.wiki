@@ -80,7 +80,7 @@ Example usage that generates a barcode (only in the PDF output):
 === Available template tags ===
 
 || tag || arguments ||
-|| pagenumber || example ||
+|| pagenumber`*` || example ||
 || nexttemplate || name ||
 || nextpage || name ||
 || nextframe || - ||
@@ -88,6 +88,8 @@ Example usage that generates a barcode (only in the PDF output):
 || toc || - ||
 || fontembed || name, src ||
 || barcode || value, align ||
+
+`*` There is a known issue with pagenumber. If you get duplicated page numbers (ex: 11 instead of 1), put the pagenumber tag on it's own line. ([http://groups.google.com/group/xhtml2pdf/browse_frm/thread/46dfce4237310c15/ddb44fff0c6 more info])
 
 
 
