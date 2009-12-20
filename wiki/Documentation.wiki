@@ -65,6 +65,33 @@ Here's the `mayapp/actions.html` template:
 {% endblock %}
 }}}
 
+== Template tags ==
+
+Django-report provides template tags that interface the pisa API, load it using `{% load report %}`
+
+Example usage that generates a barcode (only in the PDF output):
+
+{{{
+
+{% barcode "1234567891012" %}
+
+}}}
+
+=== Available template tags ===
+
+|| tag || arguments ||
+|| pagenumber || example ||
+|| nexttemplate || name ||
+|| nextpage || name ||
+|| nextframe || - ||
+|| spacer || height ||
+|| toc || - ||
+|| fontembed || name, src ||
+|| barcode || value, align ||
+
+
+
+
 == Output screenshots ==
 
 === HTML ===
@@ -74,4 +101,3 @@ http://i.imgur.com/8cRtB.png
 === PDF ===
 
 http://i.imgur.com/qFNRO.png
-
