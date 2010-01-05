@@ -57,6 +57,7 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     padding:2px 6px 1px 6px;
     text-align:right;
     width:130px;
+    background:transparent;
 }
 .report-list tbody td {
     border:1px solid #ddd;
@@ -72,6 +73,8 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     @page {
         @frame {
             margin:1.5cm 1cm;
+            /* debugging 
+            -pdf-frame-border: 1; */
         }
         @frame header {
             -pdf-frame-content: head-static;
@@ -99,9 +102,10 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     h4 { -pdf-outline-level: 2; }
     h5 { -pdf-outline-level: 3; }
     h6 { -pdf-outline-level: 4; }
+    a  { color:#000; text-decoration:none; }
     #head, #head-static {
     }
-    #body {
+     #body.with-static-head {
         padding-top:60px;
     }
     .no-print { display:none; }
@@ -145,7 +149,8 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         margin-left: 2em;
         font-style: italic;
     }     
-    /*img         { zoom: 80%; }*/
+    /* Optimization for low resolution images */
+    /*img { zoom: 80%; }*/
 }
 @media screen {
     body, html {

@@ -34,7 +34,10 @@ class DownloadToPDF():
         self.temp_file    = os.path.join(settings.REPORT_CONF['temp_path'], 'temp.pdf')
        
     def process_response(self, request, response):
-        if ("pdf" in request.GET and "text" in response['Content-Type']):
+        print response.status_code
+        if ("pdf" in request.GET 
+            and "text" in response['Content-Type'] 
+            and response.status_code == 200):
             fd  = open(self.temp_file, 'wb')
             pisa.showLogging()
             pdf = pisa.CreatePDF(response.content, fd, None, fetch_resources, 0, None, None)
