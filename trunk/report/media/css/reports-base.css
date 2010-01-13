@@ -1,5 +1,12 @@
+/*
+@font-face {
+    font-family: "DejaVuSans";
+    src: url("/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf")
+}
+*/
+
 html {
-    font-family: Helvetica; 
+    font-family: Helvetica;
     font-size: 12px; 
     font-weight: normal;
     color: #000; 
