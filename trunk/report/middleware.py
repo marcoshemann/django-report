@@ -36,29 +36,30 @@ class DownloadToPDF():
         if ("pdf" in request.GET 
             and "text" in response['Content-Type'] 
             and response.status_code == 200):
+            
             fd  = StringIO.StringIO()
+            pdf = pisa.CreatePDF(response.content, fd, None, fetch_resources, 0, None, None)
+
 #           pisa.showLogging()
-            pdf = pisa.pisaDocument(
-                response.content,   # src
-                fd,                 # dest
-                debug=0,
+#           pdf = pisa.pisaDocument(
+#               response.content,   # src
+#               fd,                 # dest
+#               debug=0,
 #               path=None,
 #               errout=sys.stdout
 #               tempdir=None,
-                format = 'pdf',
-                link_callback = fetch_resources,
+#               format = 'pdf',
+#               link_callback = fetch_resources,
 #               encoding = 'iso-8859-1',
 #               default_css=None,
 #               xhtml=True,
 #               xml_output=fd,
-            )
+#           )
             
-            fd.close()
             if not pdf.err:
                 response['Content-Type'] = u'%s; %s' % (settings.REPORT_CONF['content_type'], settings.REPORT_CONF['encoding'], )
                 response.content = fd.getvalue()
-                fd.close
-            return response
-        else:
-            return response
+            fd.close()
+
+        return response
 
