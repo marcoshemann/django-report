@@ -216,4 +216,12 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     #report-toolbar a:first-child {
         border:0;
     }
+    label.print {
+        display:block;
+    }
+    label.print input {
+        border:1px solid #CCCCCC;
+        display:block !important;
+        font-size:160%;
+    }
 }
