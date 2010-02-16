@@ -31,10 +31,10 @@ del         { color: red; text-decoration: line-through; }
 pre,code,
 kbd,samp,tt { font-family: "Courier New"; }
 h1,h2,h3,
-h4,h5,h6    { font-weight:bold; margin:10px 0; }
-h1          { font-size:24px; }
+h4,h5,h6    { font-weight:bold; margin:2px 0 0 0; }
+h1          { font-size:12px; }
 h2          { font-size:20px; }
-h3          { font-size:18px; color:#309BBF; padding:0; }
+h3          { font-size:13px; color:#666666; padding:0; }
 tr,th,td    { vertical-align: middle; width: auto; }
 th          { text-align: left; background:#eee; font-weight: bold; padding:4px 0 0 0; }
 td          { padding:3px 0 -2px 3px;}
@@ -85,8 +85,8 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         }
         @frame header {
             -pdf-frame-content: head-static;
-            margin:1.5cm 1cm;
-            height: 1cm;
+            margin:1.5cm 1cm 1.0cm 1cm;
+            height: 0.5cm;
             -pdf-outline: false;
         }
         /*
@@ -98,6 +98,7 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         */
     }
     
+    th { background:#ddd; }
     address,blockquote,body,center,dl,dir,div,fieldset,
     form,h1,h2,h3,h4,h5,h6,hr,isindex,menu,noframes,noscript,
     ol,p,pre,table,th,tr,td,ul,li,dd,dt,pdftoc { display: block; }
@@ -105,7 +106,7 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     h1,h2,h3,h4,h5,h6 { -pdf-outline: true; -pdf-outline-open: false; margin:0; }
     h1 { -pdf-outline: false; }
     h2 { -pdf-outline-level: 0; }
-    h3 { -pdf-outline-level: 1; margin-top:15px; }
+    h3 { -pdf-outline-level: 1; margin-top:10px; }
     h4 { -pdf-outline-level: 2; }
     h5 { -pdf-outline-level: 3; }
     h6 { -pdf-outline-level: 4; }
@@ -113,7 +114,8 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     #head, #head-static {
     }
      #body.with-static-head {
-        padding-top:60px;
+        padding-top:30px;
+        padding-left:4px;
     }
     .no-print { display:none; }
     .report-list {
@@ -131,7 +133,7 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         padding:4px 4px 0 4px;
     }
     .report-list tbody td {
-        border:1px solid #eee;
+        border:1px solid #ddd;
         height:14px;
         vertical-align:middle;
         line-height:-5px;
