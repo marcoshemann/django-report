@@ -7,6 +7,8 @@
         <meta name="robots" content="NONE,NOARCHIVE" />
         <meta http-equiv="Content-Type" content="text/html; charset={{ encoding|default:"utf-8" }}" />
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reports-base.css" />
+        {% block extra_css %}{% endblock %}
+        {% block extra_js %}{% endblock %}
         <meta http-equiv="Content-Type" content="text/html; {{ encoding }}">
     </head>
     <body class="report">
