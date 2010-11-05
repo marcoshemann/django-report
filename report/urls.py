@@ -35,5 +35,5 @@ for app in settings.INSTALLED_APPS:
         continue
         
     urlpatterns += patterns('',
-        (r'^%s/' % app, include('%s.report_urls' % app)),
+        (r'^%s/' % app.split('.')[-1], include('%s.report_urls' % app)),
     )
