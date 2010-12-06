@@ -15,7 +15,8 @@
         <div id="report-toolbar" class="no-print">
             {% block report.toolbar %}
             {{ base_title }} {{ title }} 
-            <a href="?pdf=true">{{ toolbar_download_txt|safe }}</a>
+            {% if toolbar_download_txt %}<a href="?pdf=true">{{ toolbar_download_txt|safe }}</a>{% endif %}
+            {% if toolbar_download %}{{ toolbar_download|safe }}{% endif %}
             <a href="/admin/">{{ toolbar_back_txt|safe }}</a>
             {% endblock %}
         </div>
