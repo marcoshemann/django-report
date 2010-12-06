@@ -160,7 +160,25 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
     }     
     /* Optimization for low resolution images */
     /*img { zoom: 80%; }*/
+    .lettre {
+    }
+    .lettre .title-date {
+        padding-top: 122px;
+    }
+    .lettre h1 {
+        font-size: 1.3em;
+        padding-top: 20px;
+    }
+    .lettre h2 {
+        font-size: 1.1em;
+        padding: 10px 0;
+    }
+    .lettre .billing-address {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+    }
 }
+
 @media screen {
     body, html {
         background:#eee;
@@ -225,5 +243,20 @@ p,pre,hr    { margin:1em 0 0.6em 0; }
         border:1px solid #CCCCCC;
         display:block !important;
         font-size:160%;
+    }
+    .lettre .title-date {
+        margin-top: 60px;
+    }
+    .lettre h1 {
+        font-size: 1.3em;
+        padding-top: 20px;
+    }
+    .lettre h2 {
+        font-size: 1.1em;
+        padding: 10px 0;
+    }
+    .lettre .billing-address {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
     }
 }
