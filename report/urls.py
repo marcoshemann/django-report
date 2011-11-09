@@ -6,6 +6,7 @@ from django.conf import settings
 from reports.views import *
 from django.views.generic.date_based import archive_year
 from django.contrib.admin.models import LogEntry
+from django.utils.importlib import import_module
 
 queryset    = LogEntry.objects.all()
 report_conf = settings.REPORT_CONF
@@ -22,8 +23,6 @@ urlpatterns = patterns('',
     },name='reports-actions'),
 ) 
 
-
-from django.utils.importlib import import_module
 for app in settings.INSTALLED_APPS:
     try:
         app_path = import_module(app).__path__
