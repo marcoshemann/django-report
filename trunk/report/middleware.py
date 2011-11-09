@@ -1,18 +1,7 @@
-import os, re 
+import sys, os, re, StringIO
 import ho.pisa as pisa
+
 from django.conf import settings
-import tempfile
-
-
-def tmpfile(max_size=131072, dir=None, pre="tmp_", suf=".pdf"):
-    if dir is None:
-        dir = tempfile.gettempdir()
-    try:
-        file = tempfile.SpooledTemporaryFile(max_size=max_size, dir=dir, prefix=pre, suffix=suf)
-    except:
-        print "Error: can't created temporary file"
-
-    return file
 
 
 def fetch_resources(uri, rel):
@@ -25,11 +14,10 @@ def fetch_resources(uri, rel):
     path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
     return path
 
-import sys, StringIO
 
 class DownloadToPDF():
     """
-    download requested apge to DPF
+    Download requested page in PDF format
     """
        
     def process_response(self, request, response):
@@ -62,4 +50,5 @@ class DownloadToPDF():
             fd.close()
 
         return response
+
 
