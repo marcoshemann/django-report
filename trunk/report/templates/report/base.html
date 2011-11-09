@@ -6,7 +6,7 @@
         <title>{{ base_title }} {{ title }}</title>
         <meta name="robots" content="NONE,NOARCHIVE" />
         <meta http-equiv="Content-Type" content="text/html; charset={{ encoding|default:"utf-8" }}" />
-        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reports-base.css" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}report/css/reports-base.css" />
         {% block extra_css %}{% endblock %}
         {% block extra_js %}{% endblock %}
         <meta http-equiv="Content-Type" content="text/html; {{ encoding }}">
@@ -24,7 +24,7 @@
             {% block report.page %}
             <div id="{% block report.head.id %}head{% endblock %}">
                 {% block report.head %}
-                <img src="{{ MEDIA_URL }}img/django-report-logo.png" alt="Django Report" border="0">
+                <img src="{{ STATIC_URL }}report/img/django-report-logo.png" alt="Django Report" border="0">
                 {% endblock %}
             </div>
             <div id="body">
