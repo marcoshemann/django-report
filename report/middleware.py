@@ -11,7 +11,8 @@ def fetch_resources(uri, rel):
     `rel` gives a relative path, but it's not used here.
 
     """
-    path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
+    path = os.path.join(settings.STATIC_ROOT, uri.replace(settings.STATIC_URL, ""))
+    print "FETCHING: %s" % path
     return path
 
 
